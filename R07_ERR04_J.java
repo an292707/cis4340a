@@ -7,7 +7,10 @@ class TryFinally {
       throw new IllegalStateException();
     } finally {
       System.out.println("logic done");
-      return true;
     }
+    // Any return statements must go here;
+    // applicable only when exception is thrown conditionally
   }
 }
+
+// Compliant :)
