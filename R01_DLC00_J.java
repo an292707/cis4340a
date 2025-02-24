@@ -3,8 +3,11 @@
 
 class A {
   public static int a = B.b();
-  public static int c() { return 1; }
 }
 
 class B {
-  publoc static int b() { return A.c(); }
+  public static int b() { return A.c(); }
+  public static int c() { return 1; }
+}
+
+// Compliant :) (including fixing some typos)
