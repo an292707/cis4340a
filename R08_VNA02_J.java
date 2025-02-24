@@ -2,15 +2,18 @@
 // VNA02-J. Ensure that compound operations on shared variables are atomic
 
 final class Adder {
-  private final AtomicInteger a = new AtomicInteger();
-  private final AtomicInteger b = new AtomicInteger();
+  private int a;
+  private int b;
 
-  public int getSum() {
-    return a.get() + b.get();
+  public synchronized int getSum() {
+    // Check for overflow
+    return a + b;
   }
 
-  public void setValues(int a, int b) {
-    this.a.set(a);
-    this.b.set(b);
+  public synchronized void setValues(int a, int b) {
+    this.a = a;
+    this.b = b;
   }
 }
+
+// Compliant :)
